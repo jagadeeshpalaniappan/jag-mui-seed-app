@@ -20,9 +20,12 @@ import {
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
   UserPlus as UserPlusIcon,
-  Users as UsersIcon
+  Users as UsersIcon,
+  MoreHorizontal as MoreHorizIcon,
+  Grid as GridIcon
 } from 'react-feather';
 import NavItem from './NavItem';
+import MoreNavItem from './MoreNavItem';
 import Logo from 'src/components/Logo';
 
 const user = {
@@ -34,7 +37,7 @@ const user = {
 const items = [
   {
     href: '/app/dashboard',
-    icon: BarChartIcon,
+    icon: GridIcon,
     title: 'Dashboard'
   },
   {
@@ -48,15 +51,26 @@ const items = [
     title: 'Products'
   },
   {
-    href: '/app/account',
-    icon: UserIcon,
-    title: 'Account'
-  },
+    href: '/app/accounts',
+    icon: BarChartIcon,
+    title: 'Accounts'
+  }
+];
+
+const bottomItems = [
   {
     href: '/app/settings',
     icon: SettingsIcon,
     title: 'Settings'
   },
+  {
+    href: '/app/account',
+    icon: UserIcon,
+    title: 'User'
+  }
+];
+
+const moreItems = [
   {
     href: '/login',
     icon: LockIcon,
@@ -71,6 +85,26 @@ const items = [
     href: '/404',
     icon: AlertCircleIcon,
     title: 'Error'
+  },
+  {
+    href: '/app/dashboard',
+    icon: GridIcon,
+    title: 'Dashboard'
+  },
+  {
+    href: '/app/customers',
+    icon: UsersIcon,
+    title: 'Customers'
+  },
+  {
+    href: '/app/products',
+    icon: ShoppingBagIcon,
+    title: 'Products'
+  },
+  {
+    href: '/app/accounts',
+    icon: BarChartIcon,
+    title: 'Accounts'
   }
 ];
 
@@ -99,21 +133,39 @@ const NavBar = ({ bgcolor, color }) => {
       bgcolor={bgcolor}
       color={color}
     >
-      <NavItem href="/" key="my-app" title="..." icon={Logo} ignoreActive />
+      <NavItem
+        href="/"
+        key="my-app"
+        title="My App"
+        icon={Logo}
+        ignoreActive
+        hideTitle
+      />
 
-      <Box>
-        <List>
-          {items.map(item => (
-            <NavItem
-              href={item.href}
-              key={item.title}
-              title={item.title}
-              icon={item.icon}
-            />
-          ))}
-        </List>
-      </Box>
+      <List>
+        {items.map(item => (
+          <NavItem
+            href={item.href}
+            key={item.title}
+            title={item.title}
+            icon={item.icon}
+          />
+        ))}
+        <MoreNavItem items={moreItems} />
+      </List>
+
       <Box flexGrow={1} />
+
+      <List>
+        {bottomItems.map(item => (
+          <NavItem
+            href={item.href}
+            key={item.title}
+            title={item.title}
+            icon={item.icon}
+          />
+        ))}
+      </List>
     </Box>
   );
 };

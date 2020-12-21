@@ -14,7 +14,8 @@ const useStyles = makeStyles(theme => ({
   item: {
     display: 'flex',
     paddingTop: 0,
-    paddingBottom: 0
+    paddingBottom: 0,
+    width: 'inherit'
   },
   button: {
     // color: theme.palette.text.secondary,
@@ -24,15 +25,15 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: 0,
     padding: '10px 8px',
     textTransform: 'none',
-    width: '100%',
     borderRadius: 0,
     padding: 0,
-    height: 50,
+    width: 70,
+    height: 60,
     // paddingTop: theme.spacing(1),
     // paddingBottom: theme.spacing(1),
-    opacity: 0.7,
     '&:hover': {
-      background: theme.palette.primary.dark
+      background: theme.palette.background.dark,
+      color: theme.palette.primary.main
     }
   },
   buttonLabel: {
@@ -48,11 +49,10 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(0.5)
   },
   active: {
-    borderLeft: '2px solid',
-    backgroundColor: theme.palette.primary.dark,
-    opacity: 1,
+    background: theme.palette.background.dark,
+    color: theme.palette.primary.main,
     '& $title': {
-      // fontWeight: theme.typography.fontWeightMedium
+      fontWeight: theme.typography.fontWeightMedium
     },
     '& $icon': {
       // color: theme.palette.primary.main
