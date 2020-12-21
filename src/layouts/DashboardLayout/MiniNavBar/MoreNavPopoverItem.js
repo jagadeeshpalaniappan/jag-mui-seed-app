@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {},
   title: {
-    fontSize: '0.3rem',
+    fontSize: 8,
     fontWeight: 300,
     marginTop: theme.spacing(0.5)
   },

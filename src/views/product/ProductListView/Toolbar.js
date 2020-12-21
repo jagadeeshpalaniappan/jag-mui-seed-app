@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {},
   importButton: {
     marginRight: theme.spacing(1)
@@ -27,51 +27,32 @@ const Toolbar = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
-    <div
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
-      <Box
-        display="flex"
-        justifyContent="flex-end"
-      >
-        <Button className={classes.importButton}>
-          Import
-        </Button>
-        <Button className={classes.exportButton}>
-          Export
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          Add product
-        </Button>
-      </Box>
-      <Box mt={3}>
-        <Card>
-          <CardContent>
-            <Box maxWidth={500}>
-              <TextField
-                fullWidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SvgIcon
-                        fontSize="small"
-                        color="action"
-                      >
-                        <SearchIcon />
-                      </SvgIcon>
-                    </InputAdornment>
-                  )
-                }}
-                placeholder="Search product"
-                variant="outlined"
-              />
-            </Box>
-          </CardContent>
-        </Card>
+    <div className={clsx(classes.root, className)} {...rest}>
+      <Box display="flex" alignItems="center" flexWrap="wrap">
+        <Box width={600} my={1}>
+          <TextField
+            fullWidth
+            size="small"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SvgIcon fontSize="small" color="action">
+                    <SearchIcon />
+                  </SvgIcon>
+                </InputAdornment>
+              )
+            }}
+            placeholder="Search Product"
+            variant="outlined"
+          />
+        </Box>
+        <Box display="flex" justifyContent="flex-end" flexGrow={1} my={1}>
+          <Button className={classes.importButton}>Import</Button>
+          <Button className={classes.exportButton}>Export</Button>
+          <Button color="primary" variant="contained">
+            Add Product
+          </Button>
+        </Box>
       </Box>
     </div>
   );

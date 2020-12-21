@@ -15,10 +15,7 @@ const useStyles = makeStyles(theme => ({
   wrapper: {
     display: 'flex',
     flex: '1 1 auto',
-    overflow: 'hidden',
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: 64
-    }
+    overflow: 'hidden'
   },
   contentContainer: {
     display: 'flex',

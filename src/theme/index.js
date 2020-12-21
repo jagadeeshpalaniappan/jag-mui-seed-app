@@ -18,22 +18,10 @@ const theme = createMuiTheme({
     text: {
       primary: colors.blueGrey[900],
       secondary: colors.blueGrey[600]
-    },
-    typography: {
-      fontSize: 5
     }
   },
   shadows,
   typography,
-  overrides: {
-    MuiCssBaseline: {
-      '@global': {
-        html: {
-          WebkitFontSmoothing: 'auto'
-        }
-      }
-    }
-  },
   props: {
     // Name of the component ⚛️
     MuiButtonBase: {
