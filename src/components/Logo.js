@@ -6,7 +6,7 @@ const Logo1 = props => {
 };
 
 const Logo = props => {
-  return <EcoIcon color="inherit" />;
+  return <EcoIcon />;
 };
 
 export default Logo;
