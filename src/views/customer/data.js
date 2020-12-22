@@ -2,25 +2,25 @@ import { v4 as uuid } from 'uuid';
 
 export default [
   {
-    id: uuid(),
+    id: '101',
     address: {
       country: 'USA',
-      state: 'West Virginia',
-      city: 'Parkersburg',
-      street: '2849 Fulton Street'
+      state: 'CA',
+      city: 'San Francisco',
+      street: '94567'
     },
-    avatarUrl: '/static/images/avatars/avatar_3.png',
-    createdAt: 1555016400000,
-    email: 'ekaterina.tankova@jag.io',
-    name: 'Ekaterina Tankova',
-    phone: '304-428-3097'
+    avatarUrl: '/static/images/avatars/avatar.png',
+    createdAt: 1554757200000,
+    email: 'jagadeesh@jag.io',
+    name: 'Jagadeesh Palaniappan',
+    phone: '972-333-4106'
   },
   {
-    id: uuid(),
+    id: '102',
     address: {
       country: 'USA',
-      state: 'Bristow',
-      city: 'Iowa',
+      state: 'TX',
+      city: 'Dallas',
       street: '1865  Pleasant Hill Road'
     },
     avatarUrl: '/static/images/avatars/avatar_4.png',
@@ -30,11 +30,11 @@ export default [
     phone: '712-351-5711'
   },
   {
-    id: uuid(),
+    id: '103',
     address: {
       country: 'USA',
-      state: 'Georgia',
-      city: 'Atlanta',
+      state: 'NY',
+      city: 'New York',
       street: '4894  Lakeland Park Drive'
     },
     avatarUrl: '/static/images/avatars/avatar_2.png',
@@ -44,7 +44,7 @@ export default [
     phone: '770-635-2682'
   },
   {
-    id: uuid(),
+    id: '104',
     address: {
       country: 'USA',
       state: 'Ohio',
@@ -58,21 +58,21 @@ export default [
     phone: '908-691-3242'
   },
   {
-    id: uuid(),
+    id: '105',
     address: {
       country: 'USA',
-      state: 'Texas',
-      city: 'Dallas',
-      street: '75247'
+      state: 'West Virginia',
+      city: 'Parkersburg',
+      street: '2849 Fulton Street'
     },
-    avatarUrl: '/static/images/avatars/avatar.png',
-    createdAt: 1554757200000,
-    email: 'clarke.gillebert@jag.io',
-    name: 'Clarke Gillebert',
-    phone: '972-333-4106'
+    avatarUrl: '/static/images/avatars/avatar_3.png',
+    createdAt: 1555016400000,
+    email: 'ekaterina.tankova@jag.io',
+    name: 'Ekaterina Tankova',
+    phone: '304-428-3097'
   },
   {
-    id: uuid(),
+    id: '106',
     address: {
       country: 'USA',
       state: 'California',
@@ -86,7 +86,7 @@ export default [
     phone: '858-602-3409'
   },
   {
-    id: uuid(),
+    id: '107',
     address: {
       country: 'USA',
       state: 'California',
@@ -100,7 +100,7 @@ export default [
     phone: '415-907-2647'
   },
   {
-    id: uuid(),
+    id: '108',
     address: {
       country: 'USA',
       state: 'Nevada',
@@ -114,7 +114,7 @@ export default [
     phone: '702-661-1654'
   },
   {
-    id: uuid(),
+    id: '109',
     address: {
       country: 'USA',
       state: 'Michigan',
@@ -128,7 +128,7 @@ export default [
     phone: '313-812-8947'
   },
   {
-    id: uuid(),
+    id: '110',
     address: {
       country: 'USA',
       state: 'Utah',
