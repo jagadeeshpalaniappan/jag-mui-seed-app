@@ -27,15 +27,62 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CustomerDetailView(props) {
+function CustomerDetailView({
+  customer,
+  success,
+  loading,
+  setSuccess,
+  handleSave
+}) {
+  return (
+    <>
+      <Box mb={2}>
+        <Collapse in={success && !loading}>
+          <Alert
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => {
+                  setSuccess(false);
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+          >
+            Customer saved successfully
+          </Alert>
+        </Collapse>
+        {loading && <LinearProgress />}
+      </Box>
+      <Grid container spacing={3}>
+        <Grid item lg={4} md={6} xs={12}>
+          <CustomerImage customer={customer} />
+        </Grid>
+        <Grid item lg={8} md={6} xs={12}>
+          <CustomerDetails
+            customer={customer}
+            loading={loading}
+            onSubmit={handleSave}
+          />
+        </Grid>
+      </Grid>
+    </>
+  );
+}
+
+export default function CustomerDetailViewModal(props) {
   const classes = useStyles();
   const [success, setSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
   const { id } = useParams();
+  const customer =
+    id === 'create' ? { address: {} } : data.find(item => item.id === id);
   console.log('CustomerDetailView', { props, id });
-  const customer = data.find(item => item.id === id);
 
   //   const handleClickOpen = scrollType => () => {
   //     setOpen(true);
@@ -80,39 +127,13 @@ export default function CustomerDetailView(props) {
       >
         <DialogTitle id="scroll-dialog-title">Customer</DialogTitle>
         <DialogContent>
-          <Box mb={2}>
-            <Collapse in={success && !loading}>
-              <Alert
-                action={
-                  <IconButton
-                    aria-label="close"
-                    color="inherit"
-                    size="small"
-                    onClick={() => {
-                      setSuccess(false);
-                    }}
-                  >
-                    <CloseIcon fontSize="inherit" />
-                  </IconButton>
-                }
-              >
-                Customer saved successfully
-              </Alert>
-            </Collapse>
-            {loading && <LinearProgress />}
-          </Box>
-          <Grid container spacing={3}>
-            <Grid item lg={4} md={6} xs={12}>
-              <CustomerImage customer={customer} />
-            </Grid>
-            <Grid item lg={8} md={6} xs={12}>
-              <CustomerDetails
-                customer={customer}
-                loading={loading}
-                onSubmit={handleSave}
-              />
-            </Grid>
-          </Grid>
+          <CustomerDetailView
+            customer={customer}
+            success={success}
+            loading={loading}
+            setSuccess={setSuccess}
+            handleSave={handleSave}
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary" disabled={loading}>

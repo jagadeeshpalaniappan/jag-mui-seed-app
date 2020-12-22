@@ -9,10 +9,12 @@ import DashboardView from 'src/views/reports/DashboardView';
 import LoginView from 'src/views/auth/LoginView';
 import NotFoundView from 'src/views/errors/NotFoundView';
 import ProductListView from 'src/views/product/ProductListView';
+import ProductDetailView from 'src/views/product/ProductDetailView';
 import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
 
 //https://reacttraining.com/blog/react-router-v6-pre/
+// https://github.com/amandeepmittal/blog-examples/tree/master/react/react-router-v6-example
 const routes = [
   {
     path: 'app',
@@ -22,10 +24,16 @@ const routes = [
       {
         path: 'customers',
         element: <CustomerListView />,
-        children: [{ path: ':id', element: <CustomerDetailView /> }]
+        children: [{ path: '/:id', element: <CustomerDetailView /> }]
       },
       { path: 'dashboard', element: <DashboardView /> },
-      { path: 'products', element: <ProductListView /> },
+      {
+        path: 'products',
+        children: [
+          { path: '/', element: <ProductListView /> },
+          { path: '/:id', element: <ProductDetailView /> }
+        ]
+      },
       { path: 'settings', element: <SettingsView /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]

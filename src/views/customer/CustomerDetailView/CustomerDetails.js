@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
 
 const ProfileDetails = ({ customer, loading, onSubmit }) => {
   const classes = useStyles();
-  const [firstName, lastName] = customer.name.split(' ');
+  const [firstName, lastName] = customer.name ? customer.name.split(' ') : [];
   const [values, setValues] = useState({
     firstName,
     lastName,

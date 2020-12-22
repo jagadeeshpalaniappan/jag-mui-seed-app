@@ -12,6 +12,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
+import { NavLink as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -49,7 +50,12 @@ const Toolbar = ({ className, ...rest }) => {
         <Box display="flex" justifyContent="flex-end" flexGrow={1} my={1}>
           <Button className={classes.importButton}>Import</Button>
           <Button className={classes.exportButton}>Export</Button>
-          <Button color="primary" variant="contained">
+          <Button
+            color="primary"
+            variant="contained"
+            component={RouterLink}
+            to="create"
+          >
             Add Customer
           </Button>
         </Box>
