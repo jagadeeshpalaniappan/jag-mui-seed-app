@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import DashboardLayout from 'src/layouts/DashboardLayout';
 import MainLayout from 'src/layouts/MainLayout';
 import AccountView from 'src/views/account/AccountView';
-import CustomerListView from 'src/views/customer/CustomerListView';
+import CustomerListView from 'src/views/customer/CustomerIndexView';
 import CustomerDetailView from 'src/views/customer/CustomerDetailView';
 import DashboardView from 'src/views/reports/DashboardView';
 import LoginView from 'src/views/auth/LoginView';
@@ -12,6 +12,8 @@ import ProductListView from 'src/views/product/ProductListView';
 import ProductDetailView from 'src/views/product/ProductDetailView';
 import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
+import PhotosIndex from 'src/views/photos/PhotosIndex';
+import AnalysisIndex from 'src/views/analysis/views/AnalysisIndex';
 
 //https://reacttraining.com/blog/react-router-v6-pre/
 // https://github.com/amandeepmittal/blog-examples/tree/master/react/react-router-v6-example
@@ -35,6 +37,8 @@ const routes = [
         ]
       },
       { path: 'settings', element: <SettingsView /> },
+      { path: 'photos', element: <PhotosIndex /> },
+      { path: 'analysis', element: <AnalysisIndex /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },

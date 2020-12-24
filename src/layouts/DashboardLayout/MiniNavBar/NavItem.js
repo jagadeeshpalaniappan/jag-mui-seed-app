@@ -7,7 +7,9 @@ import {
   ListItem,
   makeStyles,
   Box,
-  Typography
+  Typography,
+  Badge,
+  fade
 } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -18,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     // color: theme.palette.text.secondary,
-    color: 'inherit',
+    // color: 'inherit',
     fontWeight: 300,
     justifyContent: 'flex-start',
     letterSpacing: 0,
@@ -30,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     height: 50,
     // paddingTop: theme.spacing(1),
     // paddingBottom: theme.spacing(1),
-    opacity: 0.7,
+    // opacity: 0.7,
+    color: fade(theme.palette.common.white, 0.8),
     '&:hover': {
       background: theme.palette.primary.dark
     }
@@ -41,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  icon: {},
+
   title: {
     fontSize: 8,
     fontWeight: 300,
@@ -51,6 +54,7 @@ const useStyles = makeStyles(theme => ({
     borderLeft: '2px solid',
     backgroundColor: theme.palette.primary.dark,
     opacity: 1,
+    color: 'inherit',
     '& $title': {
       // fontWeight: theme.typography.fontWeightMedium
     },
@@ -60,14 +64,30 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function NavItemIcon({ icon: Icon, badge, hideTitle }) {
+  if (badge)
+    return (
+      <Badge
+        badge={badge}
+        color="secondary"
+        variant="dot"
+        overlap={hideTitle && 'circle'}
+      >
+        <Icon size="20" />
+      </Badge>
+    );
+  else return <Icon size="20" />;
+}
+
 const NavItem = ({
   className,
   href,
-  icon: Icon,
+  icon,
   title,
   ignoreActive,
   hideTitle,
   onClick,
+  badge,
   ...rest
 }) => {
   const classes = useStyles();
@@ -86,7 +106,9 @@ const NavItem = ({
         to={href}
         onClick={onClick}
       >
-        {Icon && <Icon className={classes.icon} size="20" />}
+        {icon && (
+          <NavItemIcon icon={icon} badge={badge} hideTitle={hideTitle} />
+        )}
         {!hideTitle && (
           <Typography
             variant="caption"

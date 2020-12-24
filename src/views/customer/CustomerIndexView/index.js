@@ -5,11 +5,14 @@ import Page from 'src/components/Page';
 import Results from './Results';
 import Toolbar from './Toolbar';
 import data from '../data';
+import Header from '../Header';
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.dark,
-    minHeight: '100%',
+    minHeight: '100%'
+  },
+  container: {
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
   }
@@ -22,7 +25,8 @@ const CustomerListView = () => {
 
   return (
     <Page className={classes.root} title="Customers">
-      <Container maxWidth={false}>
+      <Header />
+      <Container maxWidth={false} className={classes.container}>
         <Toolbar />
         <Box mt={3}>
           <Results customers={customers} />

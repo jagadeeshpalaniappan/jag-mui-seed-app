@@ -4,14 +4,14 @@ import { Pagination } from '@material-ui/lab';
 import Page from 'src/components/Page';
 import Toolbar from './Toolbar';
 import ProductCard from './ProductCard';
+import ProductsTab from './ProductsTab';
 import data from '../data';
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.dark,
     minHeight: '100%',
-    paddingBottom: theme.spacing(3),
-    paddingTop: theme.spacing(3)
+    paddingBottom: theme.spacing(3)
   },
   productCard: {
     height: '100%'
@@ -24,6 +24,7 @@ const ProductList = () => {
 
   return (
     <Page className={classes.root} title="Products">
+      <ProductsTab />
       <Container maxWidth={false}>
         <Toolbar />
         <Box mt={3}>

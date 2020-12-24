@@ -12,101 +12,11 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
-import {
-  AlertCircle as AlertCircleIcon,
-  BarChart as BarChartIcon,
-  Lock as LockIcon,
-  Settings as SettingsIcon,
-  ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
-  UserPlus as UserPlusIcon,
-  Users as UsersIcon,
-  MoreHorizontal as MoreHorizIcon,
-  Grid as GridIcon
-} from 'react-feather';
+
 import NavItem from './NavItem';
 import MoreNavItem from './MoreNavItem';
 import Logo from 'src/components/Logo';
-
-const user = {
-  avatar: '/static/images/avatars/avatar.png',
-  jobTitle: 'Fullstack Developer',
-  name: 'Jagadeesh Palaniappan'
-};
-
-const items = [
-  {
-    href: '/app/dashboard',
-    icon: GridIcon,
-    title: 'Dashboard'
-  },
-  {
-    href: '/app/customers',
-    icon: UsersIcon,
-    title: 'Customers'
-  },
-  {
-    href: '/app/products',
-    icon: ShoppingBagIcon,
-    title: 'Products'
-  },
-  {
-    href: '/app/accounts',
-    icon: BarChartIcon,
-    title: 'Accounts'
-  }
-];
-
-const bottomItems = [
-  {
-    href: '/app/settings',
-    icon: SettingsIcon,
-    title: 'Settings'
-  },
-  {
-    href: '/app/account',
-    icon: UserIcon,
-    title: 'User'
-  }
-];
-
-const moreItems = [
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
-  {
-    href: '/register',
-    icon: UserPlusIcon,
-    title: 'Register'
-  },
-  {
-    href: '/404',
-    icon: AlertCircleIcon,
-    title: 'Error'
-  },
-  {
-    href: '/app/dashboard',
-    icon: GridIcon,
-    title: 'Dashboard'
-  },
-  {
-    href: '/app/customers',
-    icon: UsersIcon,
-    title: 'Customers'
-  },
-  {
-    href: '/app/products',
-    icon: ShoppingBagIcon,
-    title: 'Products'
-  },
-  {
-    href: '/app/accounts',
-    icon: BarChartIcon,
-    title: 'Accounts'
-  }
-];
+import * as appNavs from 'src/data/appNavs';
 
 const useStyles = makeStyles(() => ({
   mobileDrawer: {
@@ -143,26 +53,30 @@ const NavBar = ({ bgcolor, color }) => {
       />
 
       <List>
-        {items.map(item => (
+        {appNavs.items.map(item => (
           <NavItem
             href={item.href}
             key={item.title}
             title={item.title}
             icon={item.icon}
+            hideTitle={item.hideTitle}
+            badge={item.badge}
           />
         ))}
-        <MoreNavItem items={moreItems} />
+        <MoreNavItem items={appNavs.moreItems} />
       </List>
 
       <Box flexGrow={1} />
 
       <List>
-        {bottomItems.map(item => (
+        {appNavs.bottomItems.map(item => (
           <NavItem
             href={item.href}
             key={item.title}
             title={item.title}
             icon={item.icon}
+            hideTitle={item.hideTitle}
+            badge={item.badge}
           />
         ))}
       </List>
