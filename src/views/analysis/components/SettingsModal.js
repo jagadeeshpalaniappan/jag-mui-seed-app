@@ -200,6 +200,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     '&.Mui-selected': {
       backgroundColor: theme.palette.background.paper
+    },
+    '&.Mui-selected&:hover': {
+      backgroundColor: theme.palette.background.paper
     }
   }
 }));

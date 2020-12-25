@@ -19,7 +19,10 @@ import TitleBreadcrumb from './TitleBreadcrumb';
 const useStyles = makeStyles(theme => ({
   root: {
     color: theme.palette.text.primary,
-    backgroundColor: 'inherit'
+    // backgroundColor: 'inherit',
+    backgroundColor: theme.palette.background.paper,
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1)
   },
   title: {
     flexGrow: 1
@@ -47,7 +50,7 @@ const AppToolbar = ({ toggleDrawer, pinSettingsMenu, toggleSettingsMenu }) => {
   return (
     <>
       <AppBar position="static" elevation={0} classes={{ root: classes.root }}>
-        <Toolbar variant="dense">
+        <Toolbar variant="dense" disableGutters>
           <Hidden smUp>
             <IconButton
               color="inherit"

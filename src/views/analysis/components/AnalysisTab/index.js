@@ -7,10 +7,13 @@ import Typography from '@material-ui/core/Typography';
 const AntTabs = withStyles(theme => ({
   root: {
     borderBottom: '1px solid #e8e8e8',
-    minHeight: 30
+    minHeight: 30,
+    backgroundColor: theme.palette.background.paper,
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1)
   },
   indicator: {
-    backgroundColor: theme.palette.primary.light
+    backgroundColor: 'inherit'
   }
 }))(Tabs);
 
@@ -41,7 +44,9 @@ const AntTab = withStyles(theme => ({
     },
     '&$selected': {
       color: theme.palette.primary.light,
-      fontWeight: theme.typography.fontWeightMedium
+      fontWeight: theme.typography.fontWeightMedium,
+      backgroundColor: theme.palette.background.dark,
+      borderRadius: '3px 3px 0 0'
     },
     '&:focus': {
       color: theme.palette.primary.light
@@ -102,9 +107,9 @@ export default function CustomizedTabs() {
   return (
     <div className={classes.root}>
       <AntTabs value={value} onChange={handleChange} aria-label="ant example">
-        <AntTab label="Tab 1" />
-        <AntTab label="Tab 2" />
-        <AntTab label="Tab 3" />
+        <AntTab label="My First Tab" />
+        <AntTab label="My Second Tab" />
+        <AntTab label="My Third Tab" />
       </AntTabs>
     </div>
   );
