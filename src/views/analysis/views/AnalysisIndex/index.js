@@ -20,8 +20,7 @@ import AnalysisMain from '../../components/AnalysisMain';
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.dark,
-    minHeight: '100%',
-    paddingBottom: theme.spacing(3)
+    height: '100%'
   },
   productCard: {
     height: '100%'
@@ -75,10 +74,21 @@ const Main = ({ onTabBrowserToggle }) => {
 
 const ProductList = () => {
   const classes = useStyles();
+  const [toolboxOpened, setToolboxOpened] = useState(true);
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [selectedTab, setSelectedTab] = useState('Inbox');
   const handleDrawerToggle = () => {
     console.log('handleDrawerToggle', mobileOpen);
     setMobileOpen(!mobileOpen);
+  };
+  const handleToolboxToggle = () => {
+    console.log('handleToolboxToggle', toolboxOpened);
+    setToolboxOpened(!toolboxOpened);
+  };
+  const handleTabSelect = tab => {
+    console.log('handleTabSelect', tab);
+    if (tab === selectedTab) handleToolboxToggle();
+    setSelectedTab(tab);
   };
 
   return (
@@ -86,6 +96,8 @@ const ProductList = () => {
       <DrawerLayout
         opened={mobileOpen}
         onTabBrowserToggle={handleDrawerToggle}
+        toolboxOpened={toolboxOpened}
+        onToolboxToggle={handleToolboxToggle}
         main={<AnalysisMain onTabBrowserToggle={handleDrawerToggle} />}
         main1={
           <>
@@ -93,7 +105,20 @@ const ProductList = () => {
             <ChartsList />
           </>
         }
-        drawer={<AnalysisToolbox />}
+        drawer={
+          <AnalysisToolbox
+            opened={toolboxOpened}
+            selectedTab={selectedTab}
+            onTabSelect={handleTabSelect}
+          />
+        }
+        mobiledrawer={
+          <AnalysisToolbox
+            opened
+            selectedTab={selectedTab}
+            onTabSelect={handleTabSelect}
+          />
+        }
       />
     </Page>
   );

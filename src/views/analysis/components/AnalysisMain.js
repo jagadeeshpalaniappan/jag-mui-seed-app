@@ -1,8 +1,13 @@
-import { IconButton, makeStyles, Typography, Box } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import React from 'react';
+import { Box, Grid, makeStyles } from '@material-ui/core';
+import React, { useState } from 'react';
 import AnalysisTab from './AnalysisTab';
+import AppToolbar from './AppToolbar';
+import ChartCard from './ChartCard';
 import Header from './Header';
+import LineChart from './LineChart';
+import SettingChipList from './SettingChipList';
+import SettingsToolbar from './SettingsToolbar';
+import SettingsModal from './SettingsModal';
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -14,11 +19,33 @@ const useStyles = makeStyles(theme => ({
 }));
 export default function AnalysisMain({ onTabBrowserToggle }) {
   const classes = useStyles();
+  const [pinSettingsMenu, setPinSettingsMenu] = useState(true);
+
+  const [openSettings, setOpenSettings] = useState(false);
+
+  const handleSettingsOpen = () => {
+    setOpenSettings(true);
+  };
+  const handleSettingsClose = () => {
+    setOpenSettings(false);
+  };
+  const handleSettingsOk = settings => {
+    console.log('handleSettingsOk: settings:', settings);
+    setOpenSettings(false);
+  };
+
+  const leftConfig = {
+    width: 60
+  };
+
+  const toggleSettingsMenu = () => {
+    setPinSettingsMenu(!pinSettingsMenu);
+  };
   return (
-    <Box px={2}>
-      <Header />
-      <AnalysisTab />
-      <IconButton
+    <div>
+      {/* <Header /> */}
+
+      {/* <IconButton
         color="inherit"
         aria-label="open drawer"
         edge="start"
@@ -26,35 +53,51 @@ export default function AnalysisMain({ onTabBrowserToggle }) {
         className={classes.menuButton}
       >
         <MenuIcon />
-      </IconButton>
-      <Typography paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
-        non enim praesent elementum facilisis leo vel. Risus at ultrices mi
-        tempus imperdiet. Semper risus in hendrerit gravida rutrum quisque non
-        tellus. Convallis convallis tellus id interdum velit laoreet id donec
-        ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
-        suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod
-        quis viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet
-        proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
-        tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
-        varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
-        Lorem donec massa sapien faucibus et molestie ac.
-      </Typography>
-      <Typography paragraph>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-        ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
-        integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-        lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-        Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-        vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra
-        accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac.
-        Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-        senectus et. Adipiscing elit duis tristique sollicitudin nibh sit.
-        Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra
-        maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin
-        aliquam ultrices sagittis orci a.
-      </Typography>
-    </Box>
+      </IconButton> */}
+
+      <AppToolbar
+        toggleDrawer={null}
+        pinSettingsMenu={pinSettingsMenu}
+        toggleSettingsMenu={handleSettingsOpen}
+      />
+      <AnalysisTab />
+      <SettingsToolbar pinned={pinSettingsMenu} />
+      <Box p={3}>
+        <SettingChipList />
+        <Grid container spacing={4}>
+          <Grid item lg={3} md={12} xs={12}>
+            <ChartCard chart={<LineChart />} />
+          </Grid>
+          <Grid item lg={3} md={12} xs={12}>
+            <ChartCard chart={<LineChart />} />
+          </Grid>
+          <Grid item lg={3} md={12} xs={12}>
+            <ChartCard chart={<LineChart />} />
+          </Grid>
+          <Grid item lg={3} md={12} xs={12}>
+            <ChartCard chart={<LineChart />} />
+          </Grid>
+
+          <Grid item lg={6} md={12} xs={12}>
+            <ChartCard chart={<LineChart />} />
+          </Grid>
+          <Grid item lg={6} md={12} xs={12}>
+            <ChartCard chart={<LineChart />} />
+          </Grid>
+
+          <Grid item lg={12} md={12} xs={12}>
+            <ChartCard chart={<LineChart />} />
+          </Grid>
+          <Grid item lg={12} md={12} xs={12}>
+            <ChartCard chart={<LineChart />} />
+          </Grid>
+        </Grid>
+      </Box>
+      <SettingsModal
+        open={openSettings}
+        onOk={handleSettingsOk}
+        onClose={handleSettingsClose}
+      />
+    </div>
   );
 }

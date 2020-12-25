@@ -7,8 +7,7 @@ import Typography from '@material-ui/core/Typography';
 const AntTabs = withStyles(theme => ({
   root: {
     borderBottom: '1px solid #e8e8e8',
-    minHeight: 30,
-    marginBottom: theme.spacing(3)
+    minHeight: 30
   },
   indicator: {
     backgroundColor: theme.palette.primary.light
@@ -79,7 +78,7 @@ const StyledTab = withStyles(theme => ({
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    marginBottom: theme.spacing(2)
   },
   padding: {
     padding: theme.spacing(3)

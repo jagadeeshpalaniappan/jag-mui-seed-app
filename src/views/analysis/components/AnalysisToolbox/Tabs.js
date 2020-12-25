@@ -1,40 +1,59 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import makeStyles from '@material-ui/styles/makeStyles';
+import React from 'react';
+import theme from 'src/theme';
 
-export default function Tabs({ onSelect }) {
+const useStyles = makeStyles(theme => ({
+  listItem: {
+    color: 'inherit',
+    paddingLeft: 2,
+    paddingRight: 2,
+    justifyContent: 'center',
+    '&:hover': {
+      color: theme.palette.primary.main
+    }
+  },
+  listItemSelected: {
+    // backgroundColor: theme.palette.background.dark,
+    color: theme.palette.primary.main,
+    paddingLeft: 0,
+    '&.Mui-selected': {
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.primary.main,
+      borderLeft: '2px solid'
+    },
+    '&.Mui-selected&:hover': {
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.primary.main
+    }
+  },
+  icon: {
+    color: 'inherit',
+    justifyContent: 'center'
+  }
+}));
+
+export default function Tabs({ selectedTab, onSelect }) {
+  const classes = useStyles();
   return (
     <>
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text} onClick={() => onSelect(text)}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text} onClick={() => onSelect(text)}>
-            <ListItemIcon>
+          <ListItem
+            button
+            key={text}
+            onClick={() => onSelect(text)}
+            selected={selectedTab === text}
+            classes={{
+              root: classes.listItem,
+              selected: classes.listItemSelected
+            }}
+          >
+            <ListItemIcon className={classes.icon}>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon>
           </ListItem>

@@ -1,31 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
+import Box from '@material-ui/core/Box';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    height: '100%'
+  },
+  desktopDrawer: {
+    height: '100%'
   },
   drawer: {
+    height: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
+      // width: drawerWidth,
       flexShrink: 0
     }
   },
@@ -43,16 +37,29 @@ const useStyles = makeStyles(theme => ({
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
-  drawerPaper: {
+  sideDrawer: {
     width: drawerWidth
   },
+  sideDrawerClosed: {
+    width: 50
+  },
   content: {
-    flexGrow: 1
+    flexGrow: 1,
+    height: '100%',
+    overflowY: 'auto'
   }
 }));
 
 function ResponsiveDrawer(props) {
-  const { window, main, drawer, opened, onTabBrowserToggle } = props;
+  const {
+    window,
+    main,
+    drawer,
+    mobiledrawer,
+    opened,
+    toolboxOpened,
+    onTabBrowserToggle
+  } = props;
   const classes = useStyles();
   const theme = useTheme();
 
@@ -73,26 +80,17 @@ function ResponsiveDrawer(props) {
             open={opened}
             onClose={onTabBrowserToggle}
             classes={{
-              paper: classes.drawerPaper
+              paper: classes.sideDrawer
             }}
             ModalProps={{
               keepMounted: true // Better open performance on mobile.
             }}
           >
-            {drawer}
+            {mobiledrawer}
           </Drawer>
         </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            variant="permanent"
-            anchor="right"
-            open
-          >
-            {drawer}
-          </Drawer>
+        <Hidden xsDown implementation="css" className={classes.desktopDrawer}>
+          {drawer}
         </Hidden>
       </nav>
     </div>
