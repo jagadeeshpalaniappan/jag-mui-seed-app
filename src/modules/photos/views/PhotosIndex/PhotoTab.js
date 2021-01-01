@@ -92,20 +92,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CustomizedTabs() {
+export default function CustomizedTabs({ selectedTab, onChange }) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   return (
     <div className={classes.root}>
-      <AntTabs value={value} onChange={handleChange} aria-label="ant example">
+      <AntTabs value={selectedTab} onChange={onChange} aria-label="ant example">
+        <AntTab label="Tab 0" />
         <AntTab label="Tab 1" />
         <AntTab label="Tab 2" />
-        <AntTab label="Tab 3" />
       </AntTabs>
     </div>
   );

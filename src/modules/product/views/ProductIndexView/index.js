@@ -1,10 +1,9 @@
 import { Container, makeStyles, Typography } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import Page from 'src/modules/app/components/Page';
-import ImageGridListAdv from '../../components/ImageGridListAdv';
-import ImageGridList from '../../components/ImageGridList';
-import ImageTitlebar from '../../components/ImageTitlebar';
-import PhotoTab from './PhotoTab';
+import data from '../../data';
+import ProductList from './ProductList';
+import ProductsTab from './ProductsTab';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,20 +16,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const PhotoTabContainer = ({ selectedTab }) => {
+const ProductsTabContainer = ({ selectedTab }) => {
   switch (selectedTab) {
     case 0:
-      return <ImageTitlebar />;
+      return <ProductList />;
     case 1:
-      return <ImageGridList />;
-    case 2:
-      return <ImageGridListAdv />;
+      return <Typography>Tab 1</Typography>;
     default:
       return <Typography>Tab Default</Typography>;
   }
 };
 
-const PhotoIndexView = () => {
+const ProductIndexView = () => {
   const classes = useStyles();
   const [selectedTab, setSelectedTab] = React.useState(0);
 
@@ -39,13 +36,13 @@ const PhotoIndexView = () => {
   };
 
   return (
-    <Page className={classes.root} title="Photos">
-      <PhotoTab selectedTab={selectedTab} onChange={handleChange} />
+    <Page className={classes.root} title="Products">
+      <ProductsTab selectedTab={selectedTab} onChange={handleChange} />
       <Container maxWidth={false}>
-        <PhotoTabContainer selectedTab={selectedTab} />
+        <ProductsTabContainer selectedTab={selectedTab} />
       </Container>
     </Page>
   );
 };
 
-export default PhotoIndexView;
+export default ProductIndexView;

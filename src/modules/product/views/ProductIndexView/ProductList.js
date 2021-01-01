@@ -23,27 +23,21 @@ const ProductList = () => {
   const [products] = useState(data);
 
   return (
-    <Page className={classes.root} title="Products">
-      <ProductsTab />
-      <Container maxWidth={false}>
-        <Toolbar />
-        <Box mt={3}>
-          <Grid container spacing={3}>
-            {products.map(product => (
-              <Grid item key={product.id} lg={4} md={6} xs={12}>
-                <ProductCard
-                  className={classes.productCard}
-                  product={product}
-                />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-        <Box mt={3} display="flex" justifyContent="center">
-          <Pagination color="primary" count={3} size="small" />
-        </Box>
-      </Container>
-    </Page>
+    <>
+      <Toolbar />
+      <Box mt={3}>
+        <Grid container spacing={3}>
+          {products.map(product => (
+            <Grid item key={product.id} lg={4} md={6} xs={12}>
+              <ProductCard className={classes.productCard} product={product} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+      <Box mt={3} display="flex" justifyContent="center">
+        <Pagination color="primary" count={3} size="small" />
+      </Box>
+    </>
   );
 };
 

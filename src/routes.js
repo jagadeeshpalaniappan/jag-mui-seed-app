@@ -9,7 +9,7 @@ import CustomerDetailView from 'src/modules/customer/views/CustomerDetailView';
 import DashboardView from 'src/modules/reports/views/DashboardView';
 import LoginView from 'src/modules/auth/views/LoginView';
 import NotFoundView from 'src/modules/errors/NotFoundView';
-import ProductListView from 'src/modules/product/views/ProductListView';
+import ProductListView from 'src/modules/product/views/ProductIndexView';
 import ProductDetailView from 'src/modules/product/views/ProductDetailView';
 import RegisterView from 'src/modules/auth/views/RegisterView';
 import SettingsView from 'src/modules/settings/views/SettingsView';
