@@ -33,6 +33,7 @@ export default function NavItemWithMenus({ menus, ignoreActive, ...rest }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
+    event.preventDefault();
     setAnchorEl(event.currentTarget);
   };
 

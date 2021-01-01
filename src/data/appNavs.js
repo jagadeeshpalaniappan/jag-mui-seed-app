@@ -83,7 +83,7 @@ export const moreItems = [
 
 export const bottomItems = [
   {
-    // href: '/app/settings',
+    href: '/app/settings',
     menus: [
       { href: '/app/settings', title: 'Settings1' },
       { href: '/app/settings2', title: 'Settings2' }
@@ -93,12 +93,12 @@ export const bottomItems = [
     badge: true
   },
   {
+    href: '/app/my',
     img: 'http://jagadeeshpalaniappan.github.io/assets/img/jag/hero1.jpg',
     menus: [
       { href: '/app/my/profile', title: 'My Profile' },
       { href: '/app/my/preferences', title: 'My Preferences' },
-      { href: '/app/settings', title: 'My Settings' },
-      { href: '/app/logout', title: 'Logout' }
+      { href: '/app/my/logout', title: 'Logout' }
     ],
     title: 'Jagadeesh Palaniappan',
     hideTitle: true,

@@ -1,8 +1,8 @@
-import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
+import Tabs from '@material-ui/core/Tabs';
+import React from 'react';
+import { NavLink as RouterLink } from 'react-router-dom';
 
 const AntTabs = withStyles(theme => ({
   root: {
@@ -92,15 +92,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CustomizedTabs({ selectedTab, onChange }) {
+export default function CustomizedTabs({ selectedTab }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AntTabs value={selectedTab} onChange={onChange} aria-label="ant example">
-        <AntTab label="Tab 0" />
-        <AntTab label="Tab 1" />
-        <AntTab label="Tab 2" />
+      <AntTabs value={selectedTab} aria-label="ant example">
+        <AntTab label="Tab 0" component={RouterLink} to="/app/products?tab=0" />
+        <AntTab label="Tab 1" component={RouterLink} to="/app/products?tab=1" />
+        <AntTab label="Tab 2" component={RouterLink} to="/app/products?tab=2" />
       </AntTabs>
     </div>
   );

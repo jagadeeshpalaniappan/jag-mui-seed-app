@@ -1,9 +1,11 @@
 import { Container, makeStyles, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 import Page from 'src/modules/app/components/Page';
+import useQuery from 'src/modules/common/hooks/useQuery';
 import data from '../../data';
 import ProductList from './ProductList';
 import ProductsTab from './ProductsTab';
+import { useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,15 +31,12 @@ const ProductsTabContainer = ({ selectedTab }) => {
 
 const ProductIndexView = () => {
   const classes = useStyles();
-  const [selectedTab, setSelectedTab] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setSelectedTab(newValue);
-  };
-
+  let query = useQuery();
+  const tab = query.get('tab');
+  const selectedTab = tab ? Number(tab) : 0;
   return (
     <Page className={classes.root} title="Products">
-      <ProductsTab selectedTab={selectedTab} onChange={handleChange} />
+      <ProductsTab selectedTab={selectedTab} />
       <Container maxWidth={false}>
         <ProductsTabContainer selectedTab={selectedTab} />
       </Container>
