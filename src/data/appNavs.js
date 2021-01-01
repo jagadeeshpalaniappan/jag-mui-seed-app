@@ -1,18 +1,3 @@
-import {
-  AlertCircle as AlertCircleIcon,
-  BarChart as BarChartIcon,
-  Lock as LockIcon,
-  Settings as SettingsIcon,
-  ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
-  UserPlus as UserPlusIcon,
-  Users as UsersIcon,
-  MoreHorizontal as MoreHorizIcon,
-  Grid as GridIcon,
-  Activity as ActivityIcon,
-  Image as ImageIcon
-} from 'react-feather';
-
 import UserAvatar from 'src/modules/app/layouts/DashboardLayout/MiniNavBar/UserAvatar';
 
 export const user = {
@@ -32,29 +17,67 @@ export const navMap = {
 export const items = [
   {
     href: '/app/dashboard',
-    icon: GridIcon,
+    icon: 'Dashboard',
     title: 'Dashboard'
   },
   {
     href: '/app/customers',
-    icon: UsersIcon,
+    icon: 'Customers',
     title: 'Customers'
   },
   {
     href: '/app/products',
-    icon: ShoppingBagIcon,
+    icon: 'Products',
     title: 'Products'
   },
   {
     href: '/app/photos',
-    icon: ImageIcon,
+    icon: 'Photos',
     title: 'Photos'
   },
   {
     href: '/app/analysis',
-    icon: ActivityIcon,
+    icon: 'Analysis',
     title: 'Analysis',
     badge: true
+  }
+];
+
+export const moreItems = [
+  {
+    href: '/login',
+    icon: 'Login',
+    title: 'Login'
+  },
+  {
+    href: '/register',
+    icon: 'Register',
+    title: 'Register'
+  },
+  {
+    href: '/404',
+    icon: 'Error',
+    title: 'Error'
+  },
+  {
+    href: '/app/dashboard',
+    icon: 'Dashboard',
+    title: 'Dashboard'
+  },
+  {
+    href: '/app/customers',
+    icon: 'Customers',
+    title: 'Customers'
+  },
+  {
+    href: '/app/products',
+    icon: 'Products',
+    title: 'Products'
+  },
+  {
+    href: '/app/accounts',
+    icon: 'Accounts',
+    title: 'Accounts'
   }
 ];
 
@@ -65,58 +88,20 @@ export const bottomItems = [
       { href: '/app/settings', title: 'Settings1' },
       { href: '/app/settings2', title: 'Settings2' }
     ],
-    icon: SettingsIcon,
+    icon: 'Settings',
     title: 'Settings',
     badge: true
   },
   {
-    icon: UserAvatar,
+    img: 'http://jagadeeshpalaniappan.github.io/assets/img/jag/hero1.jpg',
     menus: [
       { href: '/app/my/profile', title: 'My Profile' },
       { href: '/app/my/preferences', title: 'My Preferences' },
       { href: '/app/settings', title: 'My Settings' },
       { href: '/app/logout', title: 'Logout' }
     ],
-    title: 'User',
+    title: 'Jagadeesh Palaniappan',
     hideTitle: true,
     badge: true
-  }
-];
-
-export const moreItems = [
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
-  {
-    href: '/register',
-    icon: UserPlusIcon,
-    title: 'Register'
-  },
-  {
-    href: '/404',
-    icon: AlertCircleIcon,
-    title: 'Error'
-  },
-  {
-    href: '/app/dashboard',
-    icon: GridIcon,
-    title: 'Dashboard'
-  },
-  {
-    href: '/app/customers',
-    icon: UsersIcon,
-    title: 'Customers'
-  },
-  {
-    href: '/app/products',
-    icon: ShoppingBagIcon,
-    title: 'Products'
-  },
-  {
-    href: '/app/accounts',
-    icon: BarChartIcon,
-    title: 'Accounts'
   }
 ];

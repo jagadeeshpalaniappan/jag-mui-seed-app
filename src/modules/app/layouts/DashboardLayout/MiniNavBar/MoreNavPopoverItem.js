@@ -9,6 +9,7 @@ import {
   Box,
   Typography
 } from '@material-ui/core';
+import AppIcon from 'src/modules/app/components/AppIcon';
 
 const useStyles = makeStyles(theme => ({
   item: {
@@ -63,7 +64,7 @@ const useStyles = makeStyles(theme => ({
 const NavItem = ({
   className,
   href,
-  icon: Icon,
+  icon,
   title,
   ignoreActive,
   hideTitle,
@@ -86,7 +87,7 @@ const NavItem = ({
         to={href}
         onClick={onClick}
       >
-        {Icon && <Icon className={classes.icon} size="20" />}
+        {icon && <AppIcon icon={icon} className={classes.icon} size="20" />}
         {!hideTitle && (
           <Typography
             variant="caption"

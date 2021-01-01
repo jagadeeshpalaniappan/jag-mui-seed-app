@@ -15,7 +15,6 @@ import {
 
 import MiniNavBarItem from './MiniNavBarItem';
 import MoreNavItem from './MoreNavItem';
-import Logo from 'src/modules/app/components/Logo';
 import * as appNavs from 'src/data/appNavs';
 
 const useStyles = makeStyles(() => ({
@@ -47,7 +46,7 @@ const NavBar = ({ bgcolor, color }) => {
         href="/"
         key="my-app"
         title="My App"
-        icon={Logo}
+        icon="Logo"
         ignoreActive
         hideTitle
       />
@@ -59,6 +58,7 @@ const NavBar = ({ bgcolor, color }) => {
             key={item.title}
             title={item.title}
             icon={item.icon}
+            img={item.img}
             hideTitle={item.hideTitle}
             badge={item.badge}
             menus={item.menus}
@@ -76,6 +76,7 @@ const NavBar = ({ bgcolor, color }) => {
             key={item.title}
             title={item.title}
             icon={item.icon}
+            img={item.img}
             hideTitle={item.hideTitle}
             badge={item.badge}
             menus={item.menus}

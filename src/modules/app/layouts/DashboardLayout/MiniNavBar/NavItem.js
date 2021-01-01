@@ -2,10 +2,12 @@ import React from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
+import AppIcon from 'src/modules/app/components/AppIcon';
 import {
   Button,
   ListItem,
   makeStyles,
+  Avatar,
   Box,
   Typography,
   Badge,
@@ -64,7 +66,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function NavItemIcon({ icon: Icon, badge, hideTitle }) {
+function NavItemIcon({ img, icon, title, badge, hideTitle }) {
   if (badge)
     return (
       <Badge
@@ -73,16 +75,18 @@ function NavItemIcon({ icon: Icon, badge, hideTitle }) {
         variant="dot"
         overlap={hideTitle && 'circle'}
       >
-        <Icon size="20" />
+        {img && <Avatar alt={title} src={img} />}
+        {icon && <AppIcon icon={icon} size="20" />}
       </Badge>
     );
-  else return <Icon size="20" />;
+  else return <AppIcon icon={icon} size="20" />;
 }
 
 const NavItem = ({
   className,
   href,
   icon,
+  img,
   title,
   ignoreActive,
   hideTitle,
@@ -106,9 +110,16 @@ const NavItem = ({
         to={href}
         onClick={onClick}
       >
-        {icon && (
-          <NavItemIcon icon={icon} badge={badge} hideTitle={hideTitle} />
+        {(icon || img) && (
+          <NavItemIcon
+            icon={icon}
+            img={img}
+            title={title}
+            badge={badge}
+            hideTitle={hideTitle}
+          />
         )}
+
         {!hideTitle && (
           <Typography
             variant="caption"

@@ -39,5 +39,5 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function BadgeAvatars() {
-  return <Avatar alt="Remy Sharp" src="/static/images/avatars/avatar.png" />;
+  return <Avatar alt="Ja" src="/static/images/avatars/avatar1.png" />;
 }

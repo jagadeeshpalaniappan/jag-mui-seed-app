@@ -34,7 +34,7 @@ export default function MoreNavItem({ items }) {
       <NavItem
         key="more"
         title="More"
-        icon={MoreHorizIcon}
+        icon="More"
         onClick={openPopover}
         ignoreActive
         hideTitle
