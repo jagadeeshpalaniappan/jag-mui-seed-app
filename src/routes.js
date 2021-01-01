@@ -14,7 +14,7 @@ import ProductDetailView from 'src/modules/product/views/ProductDetailView';
 import RegisterView from 'src/modules/auth/views/RegisterView';
 import SettingsView from 'src/modules/settings/views/SettingsView';
 import PhotosIndex from 'src/modules/photos/views/PhotosIndex';
-import AnalysisIndex from 'src/modules/analysis/views/AnalysisIndex';
+import AnalysisIndexView from 'src/modules/analysis/views/AnalysisIndexView';
 
 //https://reacttraining.com/blog/react-router-v6-pre/
 // https://github.com/amandeepmittal/blog-examples/tree/master/react/react-router-v6-example
@@ -45,7 +45,7 @@ const routes = [
       },
       { path: 'settings', element: <SettingsView /> },
       { path: 'photos', element: <PhotosIndex /> },
-      { path: 'analysis', element: <AnalysisIndex /> },
+      { path: 'analysis', element: <AnalysisIndexView /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },

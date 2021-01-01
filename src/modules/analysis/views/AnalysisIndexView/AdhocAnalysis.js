@@ -92,7 +92,7 @@ const ProductList = () => {
   };
 
   return (
-    <Page className={classes.root} title="Products">
+    <>
       <DrawerLayout
         opened={mobileOpen}
         onTabBrowserToggle={handleDrawerToggle}
@@ -120,7 +120,7 @@ const ProductList = () => {
           />
         }
       />
-    </Page>
+    </>
   );
 };
 
