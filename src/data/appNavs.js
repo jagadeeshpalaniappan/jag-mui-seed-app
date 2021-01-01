@@ -60,14 +60,23 @@ export const items = [
 
 export const bottomItems = [
   {
-    href: '/app/settings',
+    // href: '/app/settings',
+    menus: [
+      { href: '/app/settings', title: 'Settings1' },
+      { href: '/app/settings', title: 'Settings2' }
+    ],
     icon: SettingsIcon,
     title: 'Settings',
     badge: true
   },
   {
-    href: '/app/account',
     icon: UserAvatar,
+    menus: [
+      { href: '/app/account', title: 'My Profile' },
+      { href: '/app/account', title: 'My Preferences' },
+      { href: '/app/account', title: 'My Settings' },
+      { href: '/app/account', title: 'Logout' }
+    ],
     title: 'User',
     hideTitle: true,
     badge: true

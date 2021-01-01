@@ -13,7 +13,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 
-import NavItem from './NavItem';
+import MiniNavBarItem from './MiniNavBarItem';
 import MoreNavItem from './MoreNavItem';
 import Logo from 'src/modules/app/components/Logo';
 import * as appNavs from 'src/data/appNavs';
@@ -43,7 +43,7 @@ const NavBar = ({ bgcolor, color }) => {
       bgcolor={bgcolor}
       color={color}
     >
-      <NavItem
+      <MiniNavBarItem
         href="/"
         key="my-app"
         title="My App"
@@ -54,13 +54,14 @@ const NavBar = ({ bgcolor, color }) => {
 
       <List>
         {appNavs.items.map(item => (
-          <NavItem
+          <MiniNavBarItem
             href={item.href}
             key={item.title}
             title={item.title}
             icon={item.icon}
             hideTitle={item.hideTitle}
             badge={item.badge}
+            menus={item.menus}
           />
         ))}
         <MoreNavItem items={appNavs.moreItems} />
@@ -70,13 +71,14 @@ const NavBar = ({ bgcolor, color }) => {
 
       <List>
         {appNavs.bottomItems.map(item => (
-          <NavItem
+          <MiniNavBarItem
             href={item.href}
             key={item.title}
             title={item.title}
             icon={item.icon}
             hideTitle={item.hideTitle}
             badge={item.badge}
+            menus={item.menus}
           />
         ))}
       </List>
