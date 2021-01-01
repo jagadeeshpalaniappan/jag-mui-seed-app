@@ -1,19 +1,19 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import DashboardLayout from 'src/layouts/DashboardLayout';
-import MainLayout from 'src/layouts/MainLayout';
-import AccountView from 'src/views/account/AccountView';
-import CustomerListView from 'src/views/customer/CustomerIndexView';
-import CustomerDetailView from 'src/views/customer/CustomerDetailView';
-import DashboardView from 'src/views/reports/DashboardView';
-import LoginView from 'src/views/auth/LoginView';
-import NotFoundView from 'src/views/errors/NotFoundView';
-import ProductListView from 'src/views/product/ProductListView';
-import ProductDetailView from 'src/views/product/ProductDetailView';
-import RegisterView from 'src/views/auth/RegisterView';
-import SettingsView from 'src/views/settings/SettingsView';
-import PhotosIndex from 'src/views/photos/PhotosIndex';
-import AnalysisIndex from 'src/views/analysis/views/AnalysisIndex';
+import DashboardLayout from 'src/modules/app/layouts/DashboardLayout';
+import MainLayout from 'src/modules/app/layouts/MainLayout';
+import AccountView from 'src/modules/account/views/AccountView';
+import CustomerListView from 'src/modules/customer/views/CustomerIndexView';
+import CustomerDetailView from 'src/modules/customer/views/CustomerDetailView';
+import DashboardView from 'src/modules/reports/views/DashboardView';
+import LoginView from 'src/modules/auth/views/LoginView';
+import NotFoundView from 'src/modules/errors/NotFoundView';
+import ProductListView from 'src/modules/product/views/ProductListView';
+import ProductDetailView from 'src/modules/product/views/ProductDetailView';
+import RegisterView from 'src/modules/auth/views/RegisterView';
+import SettingsView from 'src/modules/settings/views/SettingsView';
+import PhotosIndex from 'src/modules/photos/views/PhotosIndex';
+import AnalysisIndex from 'src/modules/analysis/views/AnalysisIndex';
 
 //https://reacttraining.com/blog/react-router-v6-pre/
 // https://github.com/amandeepmittal/blog-examples/tree/master/react/react-router-v6-example

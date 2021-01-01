@@ -13,7 +13,7 @@ import {
   Image as ImageIcon
 } from 'react-feather';
 
-import UserAvatar from 'src/layouts/DashboardLayout/MiniNavBar/UserAvatar';
+import UserAvatar from 'src/modules/app/layouts/DashboardLayout/MiniNavBar/UserAvatar';
 
 export const user = {
   avatar: '/static/images/avatars/avatar.png',
