@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SimpleMenu({ menus, ignoreActive, ...rest }) {
+export default function NavItemWithMenus({ menus, ignoreActive, ...rest }) {
   console.log('aa', menus);
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -61,6 +61,7 @@ export default function SimpleMenu({ menus, ignoreActive, ...rest }) {
         {menus &&
           menus.map(menu => (
             <MenuItem
+              key={menu.title}
               activeClassName={classes.active}
               classes={{ root: classes.button, label: classes.buttonLabel }}
               component={menu.href && RouterLink}

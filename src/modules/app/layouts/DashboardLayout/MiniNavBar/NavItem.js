@@ -69,12 +69,7 @@ const useStyles = makeStyles(theme => ({
 function NavItemIcon({ img, icon, title, badge, hideTitle }) {
   if (badge)
     return (
-      <Badge
-        badge={badge}
-        color="secondary"
-        variant="dot"
-        overlap={hideTitle && 'circle'}
-      >
+      <Badge color="secondary" variant="dot" overlap={hideTitle && 'circle'}>
         {img && <Avatar alt={title} src={img} />}
         {icon && <AppIcon icon={icon} size="20" />}
       </Badge>
@@ -96,6 +91,13 @@ const NavItem = ({
 }) => {
   const classes = useStyles();
 
+  const btnProps = {};
+  if (href) {
+    btnProps.to = href;
+    btnProps.component = RouterLink;
+    btnProps.activeClassName = ignoreActive ? '' : classes.active;
+  }
+
   return (
     <ListItem
       className={clsx(classes.item, className)}
@@ -104,11 +106,9 @@ const NavItem = ({
     >
       <Button
         disableRipple
-        activeClassName={ignoreActive ? '' : classes.active}
         classes={{ root: classes.button, label: classes.buttonLabel }}
-        component={href && RouterLink}
-        to={href}
         onClick={onClick}
+        {...btnProps}
       >
         {(icon || img) && (
           <NavItemIcon
