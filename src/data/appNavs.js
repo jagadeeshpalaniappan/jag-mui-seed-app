@@ -72,8 +72,8 @@ export const bottomItems = [
   {
     icon: UserAvatar,
     menus: [
-      { href: '/app/account', title: 'My Profile' },
-      { href: '/app/preferences', title: 'My Preferences' },
+      { href: '/app/my/profile', title: 'My Profile' },
+      { href: '/app/my/preferences', title: 'My Preferences' },
       { href: '/app/settings', title: 'My Settings' },
       { href: '/app/logout', title: 'Logout' }
     ],

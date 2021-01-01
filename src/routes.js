@@ -2,7 +2,8 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import DashboardLayout from 'src/modules/app/layouts/DashboardLayout';
 import MainLayout from 'src/modules/app/layouts/MainLayout';
-import AccountView from 'src/modules/account/views/AccountView';
+import MyProfileView from 'src/modules/my/views/MyProfileView';
+import MyPreferences from 'src/modules/my/views/MyPreferences';
 import CustomerListView from 'src/modules/customer/views/CustomerIndexView';
 import CustomerDetailView from 'src/modules/customer/views/CustomerDetailView';
 import DashboardView from 'src/modules/reports/views/DashboardView';
@@ -22,7 +23,13 @@ const routes = [
     path: 'app',
     element: <DashboardLayout />,
     children: [
-      { path: 'account', element: <AccountView /> },
+      {
+        path: 'my',
+        children: [
+          { path: '/profile', element: <MyProfileView /> },
+          { path: '/preferences', element: <MyPreferences /> }
+        ]
+      },
       {
         path: 'customers',
         element: <CustomerListView />,
