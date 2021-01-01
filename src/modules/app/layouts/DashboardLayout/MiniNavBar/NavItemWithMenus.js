@@ -6,7 +6,26 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import NavItem from './NavItem';
 
-const useStyles = makeStyles(theme => ({}));
+const useStyles = makeStyles(theme => ({
+  button: {
+    color: 'inherit',
+    '&:hover': {
+      background: theme.palette.background.dark,
+      color: theme.palette.primary.main
+    }
+  },
+  active: {
+    background: theme.palette.background.dark,
+    color: theme.palette.primary.main,
+    fontWeight: theme.typography.fontWeightMedium,
+    '& $title': {
+      fontWeight: theme.typography.fontWeightMedium
+    },
+    '& $icon': {
+      // color: theme.palette.primary.main
+    }
+  }
+}));
 
 export default function SimpleMenu({ menus, ignoreActive, ...rest }) {
   console.log('aa', menus);
@@ -42,7 +61,7 @@ export default function SimpleMenu({ menus, ignoreActive, ...rest }) {
         {menus &&
           menus.map(menu => (
             <MenuItem
-              activeClassName={ignoreActive ? '' : classes.active}
+              activeClassName={classes.active}
               classes={{ root: classes.button, label: classes.buttonLabel }}
               component={menu.href && RouterLink}
               to={menu.href}
